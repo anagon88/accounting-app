@@ -16,7 +16,7 @@ export class FinancialAccountComponent implements OnInit {
 
   ngOnInit(): void {
     this.financialAccountService.getFinancialAccount('1').subscribe( result => {
-      this.financialAccount = result;//result['transactions'];
+      this.financialAccount = result;
     })
   }
 }
