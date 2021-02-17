@@ -1,1 +1,27 @@
-<p>transactions works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3">
+        Type
+        </div>
+        <div class="col-lg-3">
+            <label class="form-check-inline">Debit
+                <input class="form-check-input" type="radio" name="mode" [value]="true" [(ngModel)]="financialAccount.isDebit">
+            </label>
+            <label class="form-check-inline">Credit
+                <input class="form-check-input" type="radio" name="mode" [value]="false" [(ngModel)]="financialAccount.isDebit">
+            </label>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-lg-3">
+            Amount
+        </div>
+        <div class="col-lg-3">
+            <input [(ngModel)]="financialAccount.amount"/>
+        </div>
+    </div>
+    <br/>
+    <button (click)="onSave()">Add</button>
+    <a routerLink="/financial-account">Cancel</a>
+</div>

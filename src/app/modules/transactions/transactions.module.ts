@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -11,10 +12,11 @@ import { TransactionsComponent } from './transactions.component';
   ],
   imports: [
     CommonModule,
-    FormsModule,
     TransactionsRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    CommonModule
   ]
 })
 export class TransactionsModule { }

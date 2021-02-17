@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "accounting-ui"
+    }
+  },
+  "defaultProject": "accounting-ui",
+  "cli": {
+    "analytics": "a55155c4-0d7b-4467-a620-0b82498de6b8"
+  }
 }

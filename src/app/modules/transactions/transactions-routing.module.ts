@@ -5,8 +5,7 @@ import { TransactionsComponent } from './transactions.component';
 
 
 const routes: Routes = [
-  { path: '', component: TransactionsComponent },
-  { path: 'transactions', component: TransactionsComponent }
+  { path: '', component: TransactionsComponent }
 ];
 
 @NgModule({

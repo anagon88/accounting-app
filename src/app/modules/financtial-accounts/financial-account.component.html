@@ -1,136 +1,52 @@
 <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-6">
-        <h1>Financial Account</h1>
-      </div>
-      <div class="col-lg-6">
-        <h2>Total: {{financialAccount.total}}</h2>
-      </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <h1>Financial Account</h1>
     </div>
-    <div class="row">
-      <div class="col-lg-6">
-        <h3>Transactions</h3>
-      </div>
+    <div class="col-lg-6">
+      <h2>Total: {{financialAccount?.total}}</h2>
     </div>
-    <div class="row">
-      <div class="col-lg-3">
-        Type
-      </div>
-      <div class="col-lg-3">
-        Amount
-      </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <h3>Transactions</h3>
     </div>
-    <!-- <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
-      <ngb-panel title="Simple">
-        <ng-template ngbPanelContent>
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-          aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-          sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-          craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-          occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-          labore sustainable VHS.
-        </ng-template>
-      </ngb-panel>
-      <ngb-panel>
-        <ng-template ngbPanelTitle>
-          <span>&#9733; <b>Fancy</b> title &#9733;</span>
-        </ng-template>
-        <ng-template ngbPanelContent>
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-          aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-          sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-          craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-          occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-          labore sustainable VHS.
-        </ng-template>
-      </ngb-panel>
-      <ngb-panel title="Disabled" [disabled]="true">
-        <ng-template ngbPanelContent>
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-          aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-          sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-          craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-          occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-          labore sustainable VHS.
-        </ng-template>
-      </ngb-panel>
-    </ngb-accordion> -->
-    <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0" class="accordion-accounts">
-          <!-- <div class="row">
-            <div class="col-lg-3">
-              {{ item.desc }} 
-            </div>
-            <div class="col-lg-3">
-              {{item.amount}}
-            </div>
-            <div class="col-lg-2">
-              <button>Details</button>
-            </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3">
+      Type
+    </div>
+    <div class="col-lg-3">
+      Amount
+    </div>
+  </div>
+  <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0" class="accordion-accounts">
+    <ngb-panel *ngFor='let item of financialAccount?.transactions'>
+      <ng-template ngbPanelTitle>
+        <div class="row">
+          <div class="col-lg-3">
+            {{item.type == '1'? 'Debit' : 'Credit'}}
           </div>
-        </div> -->
-        <!-- <div *ngFor='let item of financialAccount.items'> -->
-          <ngb-panel *ngFor='let item of financialAccount.items'>
-            <ng-template ngbPanelTitle>
-              <div class="row">
-                <div class="col-lg-3">
-                  {{item.desc}}
-                </div>
-                <div class="col-lg-3">
-                  {{item.amount}}
-                </div>
-              </div>
-            </ng-template>
-            <ng-template ngbPanelContent>
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-              aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-              sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-              craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-              occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-              labore sustainable VHS.
-            </ng-template>
-          </ngb-panel>
-        <!-- </div>  -->
-        <!-- <div class="panel-group" [attr.id]="'accordion_' + i" *ngFor="let item of financialAccount.items; let i = index;">
-          <div class="panel panel-default" >
-              <div class="panel-heading">
-                  <h4 class="panel-title">
-                      <a data-toggle="collapse" [attr.data-parent]="'#accordion_' + i" [attr.href]="'#collapseOne_' + i">{{ message.firstName }} {{ message.lastName }}</a>
-                  </h4>
-              </div>
-              <div [attr.id]="'collapseOne_' + i" class="panel-collapse collapse in">
-                  <div class="panel-body">
-                    details here {{ item.amount }}
-                  </div>
-              </div>
+          <div class="col-lg-3">
+            ${{item.amount}}
           </div>
-      </div> -->
-      <!-- <ngb-panel>
-        <ng-template ngbPanelTitle>
-          <span>&#9733; <b>Fancy</b> title &#9733;</span>
-        </ng-template>
-        <ng-template ngbPanelContent>
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-          aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-          sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-          craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-          occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-          labore sustainable VHS.
-        </ng-template>
-      </ngb-panel>
-      <ngb-panel title="Disabled" [disabled]="true">
-        <ng-template ngbPanelContent>
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-          aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-          sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-          craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-          occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-          labore sustainable VHS.
-        </ng-template>
-      </ngb-panel> -->
-    </ngb-accordion>
-    <div class="row">
-      <div class="col-lg-3">
-        <button>Add Transactions</button>
-      </div>
+        </div>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <div class="row">
+          <div class="col-lg-4">
+            {{item.type == '1'? 'Debit' : 'Credit'}}
+          </div>
+          <div class="col-lg-4">
+            ${{item.amount}}
+          </div>
+        </div>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+  <div class="row">
+    <div class="col-lg-3">
+      <a routerLink="/transactions">Add New Transaction</a>
     </div>
+  </div>
 </div>

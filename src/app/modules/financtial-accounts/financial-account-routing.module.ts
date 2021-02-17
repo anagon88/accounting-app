@@ -5,8 +5,7 @@ import { FinancialAccountComponent } from './financial-account.component';
 
 
 const routes: Routes = [
-  { path: '', component: FinancialAccountComponent },
-  { path: 'transactions', component: FinancialAccountComponent }
+  { path: '', component: FinancialAccountComponent }
 ];
 
 @NgModule({
